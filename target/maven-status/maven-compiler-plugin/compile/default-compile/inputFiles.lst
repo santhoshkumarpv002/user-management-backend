@@ -1,7 +1,6 @@
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\config\CORSConfig.java
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\config\JwtFilter.java
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\config\JwtSecurityConfig.java
-c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\controller\EmailController.java
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\controller\JwtAuthenticationController.java
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\controller\UserController.java
 c:\Users\10822332\OneDrive - LTIMindtree\Desktop\UserManagement\user-management-backend\src\main\java\com\example\user_management_backend\dto\ErrorResponseDto.java
