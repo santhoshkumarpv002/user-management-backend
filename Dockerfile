@@ -23,5 +23,11 @@ COPY src ./src
 # Build the Spring Boot application
 RUN ./mvnw package
 
+# Set the name of the application jar file dynamically
+ARG JAR_FILE=target/*.jar
+
+# Expose port 8080
+EXPOSE 8080
+
 # Run the Spring Boot application
-CMD ["java", "-jar", "target/your-app-name.jar"]
+CMD ["sh", "-c", "java -jar ${JAR_FILE}"]
