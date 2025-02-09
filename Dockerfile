@@ -6,7 +6,7 @@
 
 
 # Use Maven image to build the JAR
-FROM maven:3.8.6-eclipse-temurin-17-alpine AS build
+FROM maven:3.8.6-eclipse-temurin-21-alpine AS build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -19,7 +19,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Use a minimal image with Java to run the application
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine
 
 # Set the working directory in the container
 WORKDIR /app
