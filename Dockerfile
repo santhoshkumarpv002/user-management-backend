@@ -1,6 +1,6 @@
 # Use the official Maven image to build the app
 # https://hub.docker.com/_/maven
-FROM maven:3.6.3-openjdk-21 AS build
+FROM openjdk:21-jdk-alpine
 WORKDIR /app
 
 # Copy the pom.xml and install dependencies
@@ -13,7 +13,7 @@ RUN mvn package -DskipTests
 
 # Use the official OpenJDK image for running the app
 # https://hub.docker.com/_/openjdk
-FROM openjdk:21-jre-slim
+FROM openjdk:21-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
