@@ -1,6 +1,6 @@
 # Use the official Maven image to build the app
 # https://hub.docker.com/_/maven
-FROM openjdk:21-jdk-alpine
+FROM maven:3.6.3-openjdk-21 AS build
 WORKDIR /app
 
 # Copy the pom.xml and install dependencies
@@ -11,9 +11,9 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn package -DskipTests
 
-# Use the official OpenJDK image for running the app
-# https://hub.docker.com/_/openjdk
-FROM openjdk:21-jdk-alpine
+# Use the Amazon Corretto image for running the app
+# https://hub.docker.com/r/amazoncorretto
+FROM amazoncorretto:21
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
