@@ -3,6 +3,7 @@ FROM eclipse-temurin:21
 
 # Set the working directory in the container
 WORKDIR /app
+#
 
 # Copy the Maven wrapper-related files to the container
 COPY .mvn/ .mvn/
