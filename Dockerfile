@@ -1,24 +1,12 @@
-# Use the official Maven image to build the app
-# https://hub.docker.com/_/maven
-FROM maven:3.6.3-openjdk-21 AS build
+FROM eclipse-temurin:17-jdk-focal
+ 
 WORKDIR /app
-
-# Copy the pom.xml and install dependencies
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
-
-# Copy the source code and build the application
+ 
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+ 
 COPY src ./src
-RUN mvn package -DskipTests
-
-# Use the Amazon Corretto image for running the app
-# https://hub.docker.com/r/amazoncorretto
-FROM amazoncorretto:21
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-
-# Expose the port the app runs on
-EXPOSE 8080
-
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+#EXPOSE 8080
+ 
+CMD ["./mvnw", "spring-boot:run"]
