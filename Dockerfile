@@ -3,10 +3,11 @@
 # COPY ${JAR_FILE} app.jar
 # ENTRYPOINT ["java","-jar","/app.jar"]
 
+# Use a base image that supports Java 21
+FROM openjdk:21-jdk-slim AS build
 
-
-# Use Maven image to build the JAR
-FROM maven:3.8.6-eclipse-temurin-21-alpine AS build
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 # Set the working directory in the container
 WORKDIR /app
@@ -19,7 +20,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Use a minimal image with Java to run the application
-FROM eclipse-temurin:21-jdk-alpine
+FROM openjdk:21-jdk-slim
 
 # Set the working directory in the container
 WORKDIR /app
