@@ -85,7 +85,7 @@ public UserDto saveUser(UserDto userDto) {
             existingUser.setName(userDto.getName());
             existingUser.setEmail(userDto.getEmail());
             // existingUser.setPassword(userDto.getPassword());
-            existingUser.setRole(userDto.getRole());
+            existingUser.setRole(userDto.getRole().toUpperCase());
             existingUser.setGender(userDto.getGender());
             existingUser.setAddress(userDto.getAddress());
             existingUser.setPhone(userDto.getPhone());
