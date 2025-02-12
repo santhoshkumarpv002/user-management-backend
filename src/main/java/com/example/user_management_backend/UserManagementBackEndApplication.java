@@ -12,7 +12,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserManagementBackEndApplication {
 
+
 	public static void main(String[] args) {
+	
 		SpringApplication.run(UserManagementBackEndApplication.class, args);
 	}
 
